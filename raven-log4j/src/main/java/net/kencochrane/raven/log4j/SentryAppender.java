@@ -107,11 +107,11 @@ public class SentryAppender extends AppenderSkeleton {
         mdc.setThreadLoggingEvent(event);
         try {
             // get timestamp and timestamp in correct string format.
-            long timestamp = event.getTimeStamp();
+            long timestamp = event.timeStamp;
 
             // get the log and info about the log.
             String message = event.getRenderedMessage();
-            String logger = event.getLogger().getName();
+            String logger = event.getLoggerName();
             int level = (event.getLevel().toInt() / 1000);  //Need to divide by 1000 to keep consistent with sentry
             String culprit = event.getLoggerName();
 
